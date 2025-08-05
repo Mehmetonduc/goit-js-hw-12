@@ -2,7 +2,6 @@ import SimpleLightbox from 'simplelightbox';
 // Stil importu
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 const button = document.querySelector('.load-more');
@@ -17,14 +16,14 @@ export const renderImages = images => {
     .map(
       image => `<li class="gallery-item">
                   <a href="${image.largeImageURL}">
-                    <img src="${image.webformatURL}" width='360' height='200' alt="${image.tags}">
+                    <img src="${image.webformatURL}" width='360' height='200' alt="${image.tags}" loading="lazy">
                   </a>
                   
                   <ul>
-                      <li><b>Likes</b> ${image.likes}</li>
-                      <li><b>Views</b> ${image.views}</li>
-                      <li><b>Comments</b> ${image.comments}</li>
-                      <li><b>Downloads</b> ${image.downloads}</li>
+                      <li><b>Likes</b><br>${image.likes}</li>
+                      <li><b>Views</b><br>${image.views}</li>
+                      <li><b>Comments</b><br>${image.comments}</li>
+                      <li><b>Downloads</b><br>${image.downloads}</li>
                   </ul>
                   
                   
@@ -37,7 +36,7 @@ export const renderImages = images => {
 
 export const clearGallery = () => {
   gallery.innerHTML = '';
-}
+};
 export const showLoader = () => {
   loader.style.display = 'block';
 };
@@ -46,7 +45,7 @@ export const hideLoader = () => {
 };
 export const showButton = () => {
   button.style.display = 'block';
-}
+};
 export const hideButton = () => {
   button.style.display = 'none';
 };

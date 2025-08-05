@@ -6,9 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const api_key = '51088577-7b521529318281431558696f8';
 
-
-
-export const fetchImages = async (input, page,per_page) => {
+export const fetchImages = async (input, page, per_page) => {
   try {
     const response = await axios.get('https://pixabay.com/api/', {
       params: {
@@ -24,10 +22,7 @@ export const fetchImages = async (input, page,per_page) => {
 
     return response.data;
   } catch (error) {
-    iziToast.error({
-      title: 'Error',
-      message: error.message,
-      position: 'topRight',
-    });
+    console.error('API Error:', error);
+    throw new Error(`Failed to fetch images: ${error.message}`);
   }
 };
